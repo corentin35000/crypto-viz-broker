@@ -136,8 +136,8 @@ git clone git@github.com:corentin35000/crypto-viz-broker.git
 2. Run command :
 ```bash
    # Start the development server on http://localhost:8222 (NATS HTTP monitoring)
-   # Start the development server on port 4222 for NATS client connections protocole TCP
-   # Start the development server on TCP port 4223 for NATS client connections protocole WS (websocket)
+   # Start the development server on port 4222 (for NATS client connections protocole TCP)
+   # Start the development server on port 4223 (for NATS client connections protocole WS (websocket))
    docker-compose up
 ```
 
