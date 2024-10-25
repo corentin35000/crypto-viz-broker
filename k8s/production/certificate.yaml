@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prod-nats-crzcommon-cert
+  namespace: prod-nats
+spec:
+  secretName: prod-nats-crzcommon-tls
+  dnsNames:
+    - nats.crzcommon.com
+    - nats.ws.crzcommon.com
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer

@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: staging-nats-crzcommon-ingress
+  namespace: staging-nats
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    #nginx.ingress.kubernetes.io/auth-realm: Authentication Required
+    #nginx.ingress.kubernetes.io/auth-secret: staging-nats-auth-secret
+    #nginx.ingress.kubernetes.io/auth-type: basic
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - staging.nats.crzcommon.com
+        - staging.nats.ws.crzcommon.com
+      secretName: letsencrypt-production
+  rules:
+    - host: staging.nats.crzcommon.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: staging-nats-crzcommon-service
+                port:
+                  number: 8222
+
+    - host: staging.nats.ws.crzcommon.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: staging-nats-crzcommon-service
+                port:
+                  number: 443

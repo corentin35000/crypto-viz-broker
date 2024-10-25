@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prod-nats-crzcommon-ingress
+  namespace: prod-nats
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    #nginx.ingress.kubernetes.io/auth-realm: Authentication Required
+    #nginx.ingress.kubernetes.io/auth-secret: prod-nats-auth-secret
+    #nginx.ingress.kubernetes.io/auth-type: basic
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - nats.crzcommon.com
+        - nats.ws.crzcommon.com
+      secretName: letsencrypt-production
+  rules:
+    - host: nats.crzcommon.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: prod-nats-crzcommon-service
+                port:
+                  number: 8222
+    - host: nats.ws.crzcommon.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: prod-nats-crzcommon-service
+                port:
+                  number: 443

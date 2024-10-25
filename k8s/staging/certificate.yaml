@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: staging-nats-crzcommon-cert
+  namespace: staging-nats
+spec:
+  secretName: staging-nats-crzcommon-tls
+  dnsNames:
+    - staging.nats.crzcommon.com
+    - staging.nats.ws.crzcommon.com
+    - staging.nats.tcp.crzcommon.com
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
