@@ -1,6 +1,6 @@
 services:
   nats:
-    container_name: nats
+    container_name: cryptoviz/broker:develop
     image: nats:latest
     restart: always
     ports:
