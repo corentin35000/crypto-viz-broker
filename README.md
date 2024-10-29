@@ -13,9 +13,13 @@
 
 Ce projet est structuré en quatre dépôts distincts, chacun jouant un rôle essentiel dans la collecte, le traitement et la visualisation des données. En suivant une architecture microservices, chaque dépôt est un composant indépendant, permettant une flexibilité et une maintenabilité optimales. Cette architecture modulaire permet également des mises à jour, des tests et des déploiements continus sans interférer avec les autres parties de l'application.
 
+<br />
+
 ### Schéma d’Architecture
 
 ![Schéma d’architecture du projet Crypto Viz](crypto-viz-architecture.png)
+
+<br />
 
 ### Composants et Responsabilités
 
@@ -47,12 +51,16 @@ Ce projet est structuré en quatre dépôts distincts, chacun jouant un rôle es
   - Permet au scraper de publier des messages de manière indépendante, que le backend peut consommer et analyser.
   - Facilite la scalabilité en permettant d'ajouter des instances supplémentaires de chaque composant sans créer de dépendances directes.
 
+<br />
+
 ### Déroulement des Données et Interactions
 
 1. Le **scraper** publie les dernières actualités sur le sujet `crypto.news` du broker.
 2. Le **backend** souscrit au sujet `crypto.news`, filtre et traite les informations, puis publie les actualités filtrées et enrichies sur un nouveau sujet `crypto.news.filtered`.
 3. Le **frontend** souscrit au sujet `crypto.news.filtered` pour obtenir en temps réel les informations actualisées.
 4. Pour les données de marché, le **frontend** interroge directement le backend via des appels HTTP, qui utilise des APIs externes pour récupérer les informations les plus récentes.
+
+<br />
 
 ### Avantages de cette Architecture
 
