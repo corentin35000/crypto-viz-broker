@@ -9,7 +9,7 @@
 
 <br /><br /><br /><br />
 
-## 🏗️ Architecture de l'Application / Infrastructure
+## 🏗️ Architecture de l'Application
 
 Ce projet est structuré en quatre dépôts distincts, chacun jouant un rôle essentiel dans la collecte, le traitement et la visualisation des données. En suivant une architecture microservices, chaque dépôt est un composant indépendant, permettant une flexibilité et une maintenabilité optimales. Cette architecture modulaire permet également des mises à jour, des tests et des déploiements continus sans interférer avec les autres parties de l'application.
 
@@ -68,10 +68,6 @@ Ce projet est structuré en quatre dépôts distincts, chacun jouant un rôle es
 - **Scalabilité** : Le broker de messages permet d’ajouter des instances supplémentaires de chaque service pour gérer une charge accrue sans modification de l'architecture.
 - **Temps Réel** : Le modèle producteur/consommateur via NATS permet des communications en temps réel, assurant que les utilisateurs disposent toujours des données les plus récentes.
 - **Flexibilité** : La séparation des responsabilités permet d'ajuster ou de remplacer un composant sans perturber le reste du système.
-
----
-
-Ce schéma et cette organisation des composants assurent une structure solide pour un traitement continu des données, tout en permettant des analyses et des visualisations dynamiques pour les utilisateurs de Crypto Viz.
 
 <br /><br /><br /><br />
 
